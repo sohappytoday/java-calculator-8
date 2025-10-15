@@ -1,5 +1,8 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     public static int calculate(String str) {
@@ -7,16 +10,18 @@ public class StringCalculator {
         /**
          *  예외 처리
          */
+        InputValidator.validateInput(str);
 
-        // 빈칸이거나 null이면 IllegalArgumentException을 발생
-        if (InputValidator.isBlank(str)) {
-            throw new IllegalArgumentException();
-        }
+        /**
+         *  연산자 추출 리스트 생성
+         */
+        List<String> delimiterList = new ArrayList<>();
+        //커스텀 연산자 추출
+        List<String> customDelimiterList = InputParsing.extractCustom(str);
+        delimiterList.add(":");
+        delimiterList.add(",");
+        delimiterList.addAll(customDelimiterList);
 
-        // 기본연산자와 커스텀연산자를 가지고 있지 않으면 IllegalArgumentException을 발생
-        if (!(InputValidator.existDefault(str) || InputValidator.existCustom(str))){
-            throw new IllegalArgumentException();
-        }
 
         return 0;
     }
