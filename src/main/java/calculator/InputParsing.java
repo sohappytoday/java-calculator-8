@@ -10,6 +10,6 @@ public class InputParsing {
         if(!InputValidator.existCustom(input)){
             return new ArrayList<>();;
         }
-        return;
+
     }
 }
