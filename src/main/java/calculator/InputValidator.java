@@ -12,6 +12,7 @@ public class InputValidator {
         if (!(InputValidator.existDefault(str) || InputValidator.existCustom(str))){
             throw new IllegalArgumentException();
         }
+
     }
 
     //입력 값이 빈 칸이 아닌지 확인하는 메서드
@@ -32,7 +33,7 @@ public class InputValidator {
     //커스텀 연산자가 존재하는지 확인하는 메서드
     public static boolean existCustom(String input){
         while (input.length()>4){
-            if (input.startsWith("//") && input.contains("\n"))
+            if (input.startsWith("//") && input.contains("\\n"))
                 return true;
             input = input.substring(1);
         }
