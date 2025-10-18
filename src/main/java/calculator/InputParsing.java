@@ -50,8 +50,8 @@ public class InputParsing {
             }
             customDelimiterList.add(customDelimiter);
 
-            //커스텀 연산자가 숫자면 예외처리
-            if (customDelimiter.chars().allMatch(Character::isDigit)) {
+            //커스텀 연산자가 숫자가 들어가 있으면 예외처리
+            if (customDelimiter.chars().anyMatch(Character::isDigit)) {
                 throw new IllegalArgumentException();
             }
 
