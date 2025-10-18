@@ -31,7 +31,7 @@ public class StringCalculator {
         List<Integer> numberList = InputParsing.extractNumbers(str,delimiterList);
 
         //연산자가 잘 들어가는지 테스트용 코드
-        System.out.println(delimiterList);
+        //System.out.println(delimiterList);
 
         for (int num : numberList){
             sum += num;

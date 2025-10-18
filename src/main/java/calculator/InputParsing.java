@@ -50,6 +50,11 @@ public class InputParsing {
             }
             customDelimiterList.add(customDelimiter);
 
+            //커스텀 연산자가 숫자면 예외처리
+            if (customDelimiter.chars().allMatch(Character::isDigit)) {
+                throw new IllegalArgumentException();
+            }
+
             // "\n" 이후부터 다시 시작
             index = end + 2;
         }
