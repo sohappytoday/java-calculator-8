@@ -7,6 +7,8 @@ public class StringCalculator {
 
     public static int calculate(String str) {
 
+        int sum = 0;
+
         /**
          *  예외 처리
          */
@@ -15,14 +17,22 @@ public class StringCalculator {
         /**
          *  연산자 추출 리스트 생성
          */
-        List<String> delimiterList = new ArrayList<>();
-        //커스텀 연산자 추출
+        List<String> delimiterList = new ArrayList<>(List.of(":", ","));
         List<String> customDelimiterList = InputParsing.extractCustom(str);
-        delimiterList.add(":");
-        delimiterList.add(",");
         delimiterList.addAll(customDelimiterList);
 
+        /**
+         *  숫자 추출
+         */
+        List<Integer> numberList = InputParsing.extractNumbers(str,delimiterList);
 
-        return 0;
+        //연산자가 잘 들어가는지 테스트용 코드
+        System.out.println(delimiterList);
+
+        for (int num : numberList){
+            sum += num;
+        }
+
+        return sum;
     }
 }

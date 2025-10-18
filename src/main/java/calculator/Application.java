@@ -11,7 +11,7 @@ public class Application {
          */
         Scanner sc = new Scanner(System.in);
         System.out.println("덧셈할 문자열을 입력해 주세요.");
-        String str =  sc.nextLine();
+        String str = sc.nextLine();
 
         int result = StringCalculator.calculate(str);
         System.out.println("결과 : "+result);
